@@ -6,8 +6,6 @@ const multer=require('multer')
 const path = require('path')
 const bodyParser = require('body-parser')
 const authRoute = require('./routes/auth')
-const CartRoute = require('./routes/cart')
-const OrderRoute = require('./routes/order')
 const Motorroute = require('./routes/bus')
 const Paystack = require('./routes/paystack')
 
@@ -27,7 +25,7 @@ mongoose.connect(
     })
 
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: "https://travel-app-will.vercel.app",
     "Access-Control-Allow-Credentials": true,
 };
 app.use(cors(corsOptions));
@@ -53,8 +51,6 @@ const storage=multer.diskStorage({
 app.use("/images",express.static(path.join(__dirname,"/images")))
 app.use('/api', authRoute)
 app.use('/api', Motorroute)
-app.use('/api', CartRoute)
-app.use('/api', OrderRoute)
 app.use('/api', Paystack)
 
 
