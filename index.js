@@ -60,6 +60,10 @@ app.post("/api/upload",upload.single("file"),(req,res)=>{
     res.status(200).json("Image has been uploaded successfully!")
 })
 
+app.get('/', (req,res)=>{
+    res.status(200).json('Api Initialized')
+})
+
 
 
 
